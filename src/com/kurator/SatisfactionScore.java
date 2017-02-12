@@ -32,9 +32,9 @@ public class SatisfactionScore {
 	travelTimeScore, totalScore;
 	
 	public SatisfactionScore(double avg_wait_time, double curr_wait_time,
-							 double avg_price, double curr_price, 
-							 double avg_travel_time, double curr_travel_time,
-							 double curr_driver_score) {
+				 double avg_price, double curr_price, 
+				 double avg_travel_time, double curr_travel_time,
+				 double curr_driver_score) {
 		this.avg_wait_time = avg_wait_time;
 		this.curr_wait_time = curr_wait_time;
 		this.avg_price = avg_price;
@@ -46,14 +46,16 @@ public class SatisfactionScore {
 		computeWaitingScore();
 		computePriceScore();
 		computeTravelTimeScore();
-		totalScore = ((waitScore * WW) + (priceScore * WP) + (travelTimeScore * WT)
-				+ (ratingScore * WR))/4;
+		totalScore = ((waitScore * WW) + (priceScore * WP) + 
+			(travelTimeScore * WT)
+			+ (ratingScore * WR))/4;
 	}
 	
 	public void computeWaitingScore() {
 		if(avg_wait_time >= curr_wait_time) {
 			waitScore = 100.0;
-		} else {
+		} 
+		else {
 			waitScore = 100.0 - (curr_wait_time - avg_wait_time);
 		}
 			
@@ -72,16 +74,21 @@ public class SatisfactionScore {
 		if(avg_travel_time >= curr_travel_time) {
 			travelTimeScore = 100.0;
 		} else {
-			travelTimeScore = 100.0 - (curr_travel_time - avg_travel_time);
+			travelTimeScore = 100.0 - 
+			(curr_travel_time - avg_travel_time);
 		}
 			
 	}
 	
 	public double getTotalScore( ) {
+
 		return totalScore;
 	}
 	
 	public static void main(String[] args) {
-	}
+	
+        }
+
+
 	 
 }
