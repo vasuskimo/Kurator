@@ -21,10 +21,13 @@ package com.kurator;
  */
 
 public class Kurator {
-    
+
+    // These PID gain parameters
+    // =========================    
     public static final double KP = 1.2;
     public static final double KI = 2.3;
     public static final double KD = 0.6;
+
     public static final double TARGET = 100.0;
 
     private double currentVal;
@@ -60,7 +63,6 @@ public class Kurator {
     }
     
     public double getSatisfactionMetric( ) {
-        
        double error, pCorrection, iCorrection, dCorrection, slope, corr; 
        error = TARGET - currentVal;
        pCorrection = KP * error;

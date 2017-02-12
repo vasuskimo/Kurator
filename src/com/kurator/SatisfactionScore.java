@@ -21,7 +21,10 @@ package com.kurator;
 
 
 public class SatisfactionScore {
-    
+
+    // The Wait time, price and travel time weights
+    // need to be tuned
+    // ============================================
     public static final double WW = 0.9;
     public static final double WP = 1.0;
     public static final double WT = 1.0;
@@ -35,7 +38,6 @@ public class SatisfactionScore {
                  double avgPrice, double currPrice, 
                  double avgTravelTime, double currTravelTime,
                  double currDriverScore) {
-        
         this.avgWaitTime = avgWaitTime;
         this.currWaitTime = currWaitTime;
         this.avgPrice = avgPrice;
@@ -44,7 +46,6 @@ public class SatisfactionScore {
     }
     
     public void compute() {
-        
         computeWaitingScore();
         computePriceScore();
         computeTravelTimeScore();
@@ -54,7 +55,6 @@ public class SatisfactionScore {
     }
     
     public void computeWaitingScore() {
-        
         if(avgWaitTime >= currWaitTime) {
             waitScore = 100.0;
         } 
@@ -66,7 +66,6 @@ public class SatisfactionScore {
     }
     
     public void computePriceScore() {
-        
         if(avgPrice >= currPrice) {
             priceScore = 100.0;
         } else {
@@ -76,7 +75,6 @@ public class SatisfactionScore {
     }
     
     public void computeTravelTimeScore() {
-        
         if(avgTravelTime >= currTravelTime) {
             travelTimeScore = 100.0;
         } else {
@@ -87,13 +85,10 @@ public class SatisfactionScore {
     }
     
     public double getTotalScore( ) {
-
         return totalScore;
     }
     
     public static void main(String[] args) {
-    
     }
-
      
 }
