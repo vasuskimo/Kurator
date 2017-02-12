@@ -21,79 +21,79 @@ package com.kurator;
 
 
 public class SatisfactionScore {
-	
-	public static final double WW = 0.9;
-	public static final double WP = 1.0;
-	public static final double WT = 1.0;
-	public static final double WR = 0.9;
-	
-	double avgWaitTime, currWaitTime, avgPrice, currPrice, avgTravelTime,
-	currTravelTime, driverScore, waitScore, priceScore, ratingScore, 
-	travelTimeScore, totalScore;
-	
-	public SatisfactionScore(double avgWaitTime, double currWaitTime,
-				 double avgPrice, double currPrice, 
-				 double avgTravelTime, double currTravelTime,
-				 double currDriverScore) {
-		
-		this.avgWaitTime = avgWaitTime;
-		this.currWaitTime = currWaitTime;
-		this.avgPrice = avgPrice;
-		this.avgTravelTime = avgTravelTime;
-		this.driverScore = currDriverScore;
-	}
-	
-	public void compute() {
-		
-		computeWaitingScore();
-		computePriceScore();
-		computeTravelTimeScore();
-		totalScore = ((waitScore * WW) + (priceScore * WP) + 
-			(travelTimeScore * WT)
-			+ (ratingScore * WR))/4;
-	}
-	
-	public void computeWaitingScore() {
-		
-		if(avgWaitTime >= currWaitTime) {
-			waitScore = 100.0;
-		} 
-		else {
-			waitScore = (100.0  * 
-				(currWaitTime - avgWaitTime))/avgWaitTime;
-		}
-			
-	}
-	
-	public void computePriceScore() {
-		
-		if(avgPrice >= currPrice) {
-			priceScore = 100.0;
-		} else {
-			priceScore = (100.0 * (currPrice - avgPrice))/avgPrice;
-		}
-			
-	}
-	
-	public void computeTravelTimeScore() {
-		
-		if(avgTravelTime >= currTravelTime) {
-			travelTimeScore = 100.0;
-		} else {
-			travelTimeScore = (100.0 * 
-				(currTravelTime - avgTravelTime))/avgTravelTime;
-		}
-			
-	}
-	
-	public double getTotalScore( ) {
+    
+    public static final double WW = 0.9;
+    public static final double WP = 1.0;
+    public static final double WT = 1.0;
+    public static final double WR = 0.9;
+    
+    double avgWaitTime, currWaitTime, avgPrice, currPrice, avgTravelTime,
+    currTravelTime, driverScore, waitScore, priceScore, ratingScore, 
+    travelTimeScore, totalScore;
+    
+    public SatisfactionScore(double avgWaitTime, double currWaitTime,
+                 double avgPrice, double currPrice, 
+                 double avgTravelTime, double currTravelTime,
+                 double currDriverScore) {
+        
+        this.avgWaitTime = avgWaitTime;
+        this.currWaitTime = currWaitTime;
+        this.avgPrice = avgPrice;
+        this.avgTravelTime = avgTravelTime;
+        this.driverScore = currDriverScore;
+    }
+    
+    public void compute() {
+        
+        computeWaitingScore();
+        computePriceScore();
+        computeTravelTimeScore();
+        totalScore = ((waitScore * WW) + (priceScore * WP) + 
+            (travelTimeScore * WT)
+            + (ratingScore * WR))/4;
+    }
+    
+    public void computeWaitingScore() {
+        
+        if(avgWaitTime >= currWaitTime) {
+            waitScore = 100.0;
+        } 
+        else {
+            waitScore = (100.0  * 
+                (currWaitTime - avgWaitTime))/avgWaitTime;
+        }
+            
+    }
+    
+    public void computePriceScore() {
+        
+        if(avgPrice >= currPrice) {
+            priceScore = 100.0;
+        } else {
+            priceScore = (100.0 * (currPrice - avgPrice))/avgPrice;
+        }
+            
+    }
+    
+    public void computeTravelTimeScore() {
+        
+        if(avgTravelTime >= currTravelTime) {
+            travelTimeScore = 100.0;
+        } else {
+            travelTimeScore = (100.0 * 
+                (currTravelTime - avgTravelTime))/avgTravelTime;
+        }
+            
+    }
+    
+    public double getTotalScore( ) {
 
-		return totalScore;
-	}
-	
-	public static void main(String[] args) {
-	
+        return totalScore;
+    }
+    
+    public static void main(String[] args) {
+    
     }
 
-	 
+     
 }
