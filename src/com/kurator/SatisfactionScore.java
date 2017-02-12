@@ -79,7 +79,8 @@ public class SatisfactionScore {
 		if(avgTravelTime >= currTravelTime) {
 			travelTimeScore = 100.0;
 		} else {
-			travelTimeScore = (100.0 * (currTravelTime - avgTravelTime))/avgTravelTime;
+			travelTimeScore = (100.0 * 
+				(currTravelTime - avgTravelTime))/avgTravelTime;
 		}
 			
 	}
