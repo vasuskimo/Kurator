@@ -35,6 +35,7 @@ public class SatisfactionScore {
 				 double avgPrice, double currPrice, 
 				 double avgTravelTime, double currTravelTime,
 				 double currDriverScore) {
+		
 		this.avgWaitTime = avgWaitTime;
 		this.currWaitTime = currWaitTime;
 		this.avgPrice = avgPrice;
@@ -43,6 +44,7 @@ public class SatisfactionScore {
 	}
 	
 	public void compute() {
+		
 		computeWaitingScore();
 		computePriceScore();
 		computeTravelTimeScore();
@@ -52,30 +54,32 @@ public class SatisfactionScore {
 	}
 	
 	public void computeWaitingScore() {
+		
 		if(avgWaitTime >= currWaitTime) {
 			waitScore = 100.0;
 		} 
 		else {
-			waitScore = 100.0 - (currWaitTime - avgWaitTime);
+			waitScore = (100.0  * (currWaitTime - avgWaitTime))/avgWaitTime;
 		}
 			
 	}
 	
 	public void computePriceScore() {
+		
 		if(avgPrice >= currPrice) {
 			priceScore = 100.0;
 		} else {
-			priceScore = 100.0 - (currPrice - avgPrice);
+			priceScore = (100.0 * (currPrice - avgPrice))/avgPrice;
 		}
 			
 	}
 	
 	public void computeTravelTimeScore() {
+		
 		if(avgTravelTime >= currTravelTime) {
 			travelTimeScore = 100.0;
 		} else {
-			travelTimeScore = 100.0 - 
-			(currTravelTime - avgTravelTime);
+			travelTimeScore = (100.0 * (currTravelTime - avgTravelTime))/avgTravelTime;
 		}
 			
 	}
@@ -87,8 +91,7 @@ public class SatisfactionScore {
 	
 	public static void main(String[] args) {
 	
-        }
-
+    }
 
 	 
 }
