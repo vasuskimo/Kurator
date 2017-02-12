@@ -59,7 +59,8 @@ public class SatisfactionScore {
 			waitScore = 100.0;
 		} 
 		else {
-			waitScore = (100.0  * (currWaitTime - avgWaitTime))/avgWaitTime;
+			waitScore = (100.0  * 
+				(currWaitTime - avgWaitTime))/avgWaitTime;
 		}
 			
 	}
