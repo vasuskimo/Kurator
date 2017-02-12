@@ -77,7 +77,8 @@ public class Kurator {
          double cumError = 0.0;
          double lastError = 0.001;
          
-         SatisfactionScore score = new SatisfactionScore(
+         SatisfactionScore score = 
+		new SatisfactionScore(
                 6.5, 4.5, 7.7,11.5,32.3, 54.5, 95.0);
          score.compute();
          
