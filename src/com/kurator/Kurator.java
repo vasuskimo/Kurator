@@ -24,14 +24,14 @@ public class Kurator {
 
     // These PID gain parameters
     // =========================    
-    public static final double KP = 1.2;
-    public static final double KI = 2.3;
-    public static final double KD = 0.6;
+    public static final double KP = 1.0;
+    public static final double KI = 2.0;
+    public static final double KD = 0.4;
 
     public static final double TARGET = 100.0;
 
     private double currentVal;
-    private double cumError;
+    private double cummulativeError;
     private double lastError;
     
     public double getCurrentVal() {
@@ -42,12 +42,12 @@ public class Kurator {
         this.currentVal = currentVal;
     }
 
-    public double getCumError() {
-        return cumError;
+    public double getCummulativeError() {
+        return cummulativeError;
     }
 
-    public void setCumError(double cumError) {
-        this.cumError = cumError;
+    public void setCummulativeError(double cumError) {
+        this.cummulativeError = cumError;
     }
 
     public double getLastError() {
@@ -66,8 +66,8 @@ public class Kurator {
        double error, pCorrection, iCorrection, dCorrection, slope, corr; 
        error = TARGET - currentVal;
        pCorrection = KP * error;
-       cumError += error;
-       iCorrection = KI * cumError;
+       cummulativeError += error;
+       iCorrection = KI * cummulativeError;
        slope = error - lastError;
        dCorrection = slope * KD;
        lastError = error;
@@ -76,16 +76,16 @@ public class Kurator {
     }
     
      public static void main(String[] args) {
-         double cumError = 0.0;
-         double lastError = 0.001;
+         double cummulativeError = 0.1;
+         double lastError = 0.1;
          
          SatisfactionScore score = 
 		new SatisfactionScore(
                 6.5, 4.5, 7.7,11.5,32.3, 54.5, 95.0);
          score.compute();
-         
+         System.out.println("Total Score is " + score.getTotalScore());
          Kurator kurator = new  Kurator( score.getTotalScore());
-         kurator.setCumError(cumError);
+         kurator.setCummulativeError(cummulativeError);
          kurator.setLastError(lastError);
          double satisfaction = kurator.getSatisfactionMetric();
          
