@@ -14,13 +14,14 @@
 package com.kurator;
 
 /**
- * SatisfactionScore is a composite score of satisfaction from
+ * DriverSatisfactionScore is a composite satisfaction score 
+ * of driver which is a function of 
  * wait time, price, travel time and the driver rating
  * @author Vasu Srinivasan
  */
 
 
-public class SatisfactionScore {
+public class DriverSatisfactionScore implements SatisfactionScore {
 
     // The Wait time, price and travel time weights
     // need to be tuned
@@ -34,7 +35,7 @@ public class SatisfactionScore {
     currTravelTime, driverScore, waitScore, priceScore, ratingScore, 
     travelTimeScore, totalScore;
     
-    public SatisfactionScore(double avgWaitTime, double currWaitTime,
+    public DriverSatisfactionScore(double avgWaitTime, double currWaitTime,
                  double avgPrice, double currPrice, 
                  double avgTravelTime, double currTravelTime,
                  double currDriverScore) {
