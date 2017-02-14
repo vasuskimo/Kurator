@@ -80,7 +80,7 @@ public class Kurator {
          double lastError = 0.1;
          
          SatisfactionScore score = 
-		new DriverSatisfactionScore(
+		new RiderSatisfactionScore(
                 6.5, 4.5, 7.7,11.5,32.3, 54.5, 95.0);
          score.compute();
          System.out.println("Total Score is " + score.getTotalScore());
